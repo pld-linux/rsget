@@ -1,9 +1,9 @@
 #
-Summary:	RapidShare files downloader
-Summary(pl.UTF-8):	Pobieracz plików z RapidShare
+Summary:	A console-based RapidShare files downloader
+Summary(pl.UTF-8):	Konsolowy skrypt do pobierania plików z RapidShare
 Name:		rsget
 Version:	20081014
-Release:	0.1
+Release:	1
 License:	Do What The Fuck You Want To Public License
 Group:		Applications
 Source0:	http://jachacy.mm5.pl/pub/%{name}.sh
@@ -19,10 +19,11 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Rapidshare files downloader.
+rsget is a console-based RapidShare files downloader.
 
 %description -l pl.UTF-8
-Skrypt automatyzujący pobieranie plików z RapidShare.
+rsget jest konsolowym skryptem automatyzującym pobieranie plików z
+RapidShare.
 
 %prep
 
