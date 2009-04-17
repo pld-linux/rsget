@@ -28,8 +28,8 @@ RapidShare.
 %prep
 
 %setup -q -c -T
-cp %SOURCE0 .
-cp %SOURCE1 .
+cp %{SOURCE0} .
+cp %{SOURCE1} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
