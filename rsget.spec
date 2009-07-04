@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Konsolowy skrypt do pobierania plików z RapidShare
 Name:		rsget
 Version:	20081014
 Release:	1
-License:	Do What The Fuck You Want To Public License
+License:	WTFPL
 Group:		Applications
 Source0:	http://jachacy.mm5.pl/pub/%{name}.sh
 # Source0-md5:	f783eee9d3fba101289d4213ed383217
