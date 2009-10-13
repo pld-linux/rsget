@@ -1,0 +1,39 @@
+--- rsget.sh.orig	2009-02-12 16:31:07.000000000 +0100
++++ rsget.sh	2009-10-13 08:23:18.000000000 +0200
+@@ -3,7 +3,7 @@
+ # Piotr Jachacy
+ # jachacy@gmail.com
+ #
+-# ostatnia modyfikacja: 14.10.2008
++# ostatnia modyfikacja: 13.10.2009
+ #
+ # /* This program is free software. It comes without any warranty, to
+ # * the extent permitted by applicable law. You can redistribute it
+@@ -49,6 +49,27 @@
+ 			odliczanie $minuty
+ 			
+ 			pobierz $1
++		elif [ -n "$(echo "$link" | grep "Currently a lot of users are downloading files.")" ]
++		then
++			minuty=$(echo "$link" | grep "Please try again in" | sed -e "s/.*in \([0-9]*\) minutes.*/\1/")
++
++			echo "Serwer jest przeciążony. Musisz odczekać około $minuty minut"
++
++			minuty=$[$minuty*60+30]
++
++			odliczanie $minuty
++
++			pobierz $1
++		elif [ -n "$(echo "$link" | grep "We regret that currently we have no available slots for free users.")" ]
++		then
++			minuty=$(echo "$link" | grep "Unfortunately you will have to wait" | sed -e "s/.*wait \([0-9]*\) minutes.*/\1/")
++			echo "Brak wolnych slotów dla użytkowników darmowych. Musisz odczekać około $minuty minut"
++
++			minuty=$[$minuty*60+30]
++
++			odliczanie $minuty
++
++			pobierz $1
+ 		else
+ 			czas=$(echo "$link" | grep "var c" | sed -e "s/var c=\([0-9]*\);.*/\1/")
+ 
